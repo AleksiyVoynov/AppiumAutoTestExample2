@@ -13,4 +13,17 @@ public abstract class Device {
     public String platformVersion;
     public String uDID;
     public DesiredCapabilities capabilities;
+
+    @Override
+    public String toString() {
+        return "Device{" +
+                "app=" + app +
+                ", os='" + os + '\'' +
+                ", origin='" + origin + '\'' +
+                ", device='" + device + '\'' +
+                ", model='" + model + '\'' +
+                ", name='" + name + '\'' +
+                ", platformVersion='" + platformVersion + '\'' +
+                '}';
+    }
 }

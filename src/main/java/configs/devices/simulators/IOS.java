@@ -24,17 +24,4 @@ public class IOS extends Device {
         cap.setCapability("appium:xcodeOrgId", xcodeOrgId);
         this.capabilities = cap;
     }
-
-    @Override
-    public String toString() {
-        return "IOS {" +
-                "app=" + app +
-                ", os='" + os + '\'' +
-                ", origin='" + origin + '\'' +
-                ", device='" + device + '\'' +
-                ", model='" + model + '\'' +
-                ", name='" + name + '\'' +
-                ", platformVersion='" + platformVersion + '\'' +
-                '}';
-    }
 }

@@ -24,17 +24,4 @@ public class Android extends Device {
         cap.setCapability("appium:deviceName", name);
         this.capabilities = cap;
     }
-
-    @Override
-    public String toString() {
-        return "Android {" +
-                "app=" + app +
-                ", os='" + os + '\'' +
-                ", origin='" + origin + '\'' +
-                ", device='" + device + '\'' +
-                ", model='" + model + '\'' +
-                ", name='" + name + '\'' +
-                ", platformVersion='" + platformVersion + '\'' +
-                '}';
-    }
 }
