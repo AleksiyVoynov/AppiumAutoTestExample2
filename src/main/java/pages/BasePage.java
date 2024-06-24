@@ -14,7 +14,6 @@ import org.openqa.selenium.remote.DriverCommand;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class BasePage extends Config {
     protected final AppiumDriver appiumDriver;
@@ -25,9 +24,9 @@ public class BasePage extends Config {
 
     public void webViewContext() {
         if (device instanceof Android) {
-            ((SupportsContextSwitching) appiumDriver).context(new ChromeApp(waitWebView()).webViewContext);
+            ((SupportsContextSwitching) appiumDriver).context(new ChromeApp(getContext()).webViewContext);
         } else if (device instanceof IOS) {
-            ((SupportsContextSwitching) appiumDriver).context(new SafariApp(waitWebView()).webViewContext);
+            ((SupportsContextSwitching) appiumDriver).context(new SafariApp(getContext()).webViewContext);
         }
     }
 
@@ -39,25 +38,8 @@ public class BasePage extends Config {
         }
     }
 
-    private List<String> waitWebView() {
-        List<String> contextNames = new ArrayList<>();
-
-        int attempt = 3;
-        int sizeList = 0;
-
-        while (sizeList < 2 && attempt != 0) {
-            Set<String> set = ((SupportsContextSwitching) appiumDriver).getContextHandles();
-            contextNames.clear();
-            contextNames.addAll(set);
-            sizeList = contextNames.size();
-            attempt--;
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return contextNames;
+    private List<String> getContext() {
+        return new ArrayList<>(((SupportsContextSwitching) appiumDriver).getContextHandles());
     }
 
     @Step("go to url")

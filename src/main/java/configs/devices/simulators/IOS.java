@@ -8,9 +8,10 @@ public class IOS extends Device {
 
     public IOS(String deviceName, String model, String version, String uDID, String xcodeOrgId, App app) {
         this.app = app;
-        this.type = new DeviceType("ios", "simulator", deviceName);
+        this.os = "android";
+        this.origin = "simulator";
+        this.device = deviceName;
         this.model = model;
-        this.name = type.device + " " + model;
         this.platformVersion = version;
         this.uDID = uDID;
 
@@ -28,7 +29,10 @@ public class IOS extends Device {
     public String toString() {
         return "IOS {" +
                 "app=" + app +
-                ", type=" + type +
+                ", os='" + os + '\'' +
+                ", origin='" + origin + '\'' +
+                ", device='" + device + '\'' +
+                ", model='" + model + '\'' +
                 ", name='" + name + '\'' +
                 ", platformVersion='" + platformVersion + '\'' +
                 '}';

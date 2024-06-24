@@ -27,6 +27,7 @@ public class IOSConfig extends Config {
         capabilities.setCapability("appium:usePrebuiltWDA", true);
         capabilities.setCapability("appium:noReset", true);
         capabilities.setCapability("appium:fullReset", false);
+        capabilities.setCapability("appium:webviewConnectTimeout", 5000);
 
         capabilities.setCapability("appium:wdaLocalPort", appiumConfig.IOSWDPort);
         capabilities.setCapability("appium:derivedDataPath", findWebDriverAgentPath());
@@ -50,7 +51,7 @@ public class IOSConfig extends Config {
                 System.err.println("An error occurred while executing the command.");
             }
         } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
         return output.toString().trim();
     }

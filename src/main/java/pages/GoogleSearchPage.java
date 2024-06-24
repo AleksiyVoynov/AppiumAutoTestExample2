@@ -16,7 +16,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class GoogleSearchPage extends BasePage {
-    private final By q = By.cssSelector("textarea[aria-label='Google Search']");
+    private final By search = By.cssSelector("textarea[name='q']");
     private final By results = By.cssSelector("#rso [role='text'], #rso [role='link']");
 
     public GoogleSearchPage(AppiumDriver appiumDriver) {
@@ -25,7 +25,7 @@ public class GoogleSearchPage extends BasePage {
 
     @Step("make search {0}")
     public void searchFor(String text) {
-        appiumDriver.findElement(q).sendKeys(text);
+        appiumDriver.findElement(search).sendKeys(text);
         if (device instanceof Android) {
             ((AndroidDriver) appiumDriver).pressKey(new KeyEvent(AndroidKey.ENTER));
         } else if (device instanceof IOS){
