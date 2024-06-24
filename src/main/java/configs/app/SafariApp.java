@@ -4,9 +4,9 @@ import java.util.List;
 
 public class SafariApp extends App {
     public String webViewContext;
-    public String name = "Safari";
 
     public SafariApp() {
+        this.name = "Safari";
         this.bundleId = "com.apple.mobilesafari";
     }
 
@@ -15,12 +15,5 @@ public class SafariApp extends App {
                 .filter(s -> !s.contains("NATIVE") && !s.contains("WEBVIEW"))
                 .findFirst()
                 .orElse(list.get(list.size() - 1));
-    }
-
-    @Override
-    public String toString() {
-        return "App {" +
-                "name='" + name + '\'' +
-                '}';
     }
 }

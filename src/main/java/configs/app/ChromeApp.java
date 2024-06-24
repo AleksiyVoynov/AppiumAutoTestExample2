@@ -4,9 +4,9 @@ import java.util.List;
 
 public class ChromeApp extends App {
     public String webViewContext;
-    public String name = "Chrome";
 
     public ChromeApp() {
+        this.name = "Chrome";
         this.appPackage = "com.android.chrome";
         this.appActivity = "com.google.android.apps.chrome.Main";
     }
@@ -16,12 +16,5 @@ public class ChromeApp extends App {
                 .filter(s -> s.contains("chrome"))
                 .findFirst()
                 .orElse(list.get(list.size() - 1));
-    }
-
-    @Override
-    public String toString() {
-        return "App {" +
-                "name='" + name + '\'' +
-                '}';
     }
 }
