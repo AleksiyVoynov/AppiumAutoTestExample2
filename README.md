@@ -9,26 +9,22 @@
 
 
 # Guide:
-1. Start the Appium server for Android or iOS.
-
+## Start the Appium server for Android and/or iOS.
     * For Android:
-      ```sh
       appium -a 127.0.0.1 -p 4732 --session-override --log-timestamp --local-timezone --allow-insecure chromedriver_autodownload
-      ```
 
     * For iOS:
-      ```sh
       appium -a 0.0.0.0 -p 4723 --session-override --relaxed-security --driver-xcuitest-webdriveragent-port 8100 --log-timestamp --local-timezone
-      ```
 
-2. Put your device settings here:
-   ```plaintext
-   src/main/java/configs/Config.java
+## Put your device setting instead mine:
+* src/main/java/configs/Config.java
 
-3. Then run 'GoogleSearchTest'
-   ```plaintext
-   src/test/java/GoogleSearchTest.java
-   
-4. After run, you can generate report put to console next line:
-   ```plaintext
-   allure serve build/allure-results
+## To run tests and generate Allure report:
+* open terminal
+* cd (path to /AppiumAutoTestsExample2)
+* run `gradle clean`
+* run `gradle test`
+
+
+## To see a report:
+1. run `allure serve build/allure-results `
