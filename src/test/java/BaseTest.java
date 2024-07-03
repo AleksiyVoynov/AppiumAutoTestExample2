@@ -16,7 +16,7 @@ public class BaseTest extends Config {
     protected static AppiumDriver appiumDriver;
 
     @BeforeAll
-    @Step("Setting up Appium driver")
+    @Step("setting up appium driver")
     protected static void setUp() {
         if (device instanceof Android) {
             appiumDriver = ((Android) device).androidDriver;
@@ -29,7 +29,7 @@ public class BaseTest extends Config {
     }
 
     @AfterAll
-    @Step("Tearing down Appium driver")
+    @Step("tearing down appium driver")
     protected static void tearDown() {
         appiumDriver.quit();
     }

@@ -23,7 +23,7 @@ public class GoogleSearchPage extends BasePage {
         super(appiumDriver);
     }
 
-    @Step("make search {0}")
+    @Step("make search")
     public void searchFor(String text) {
         appiumDriver.findElement(search).sendKeys(text);
         if (device instanceof Android) {
