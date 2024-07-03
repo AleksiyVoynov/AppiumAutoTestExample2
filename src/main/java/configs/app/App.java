@@ -8,8 +8,6 @@ public abstract class App {
 
     @Override
     public String toString() {
-        return "App{" +
-                "name='" + name + '\'' +
-                '}';
+        return name;
     }
 }

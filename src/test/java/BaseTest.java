@@ -1,8 +1,6 @@
 import configs.Config;
 import configs.devices.simulators.Android;
 import configs.devices.simulators.IOS;
-import configs.platformConfig.android.AndroidConfig;
-import configs.platformConfig.ios.IOSConfig;
 import io.appium.java_client.AppiumDriver;
 import io.qameta.allure.Step;
 import io.qameta.allure.junit5.AllureJunit5;
@@ -19,15 +17,11 @@ public class BaseTest extends Config {
 
     @BeforeAll
     @Step("Setting up Appium driver")
-    protected static void setUp() throws Exception {
+    protected static void setUp() {
         if (device instanceof Android) {
-            AndroidConfig androidConfig = new AndroidConfig();
-            androidConfig.initDriver(Config.device.capabilities);
-            appiumDriver = androidConfig.android;
+            appiumDriver = ((Android) device).androidDriver;
         } else if (device instanceof IOS) {
-            IOSConfig iosConfig = new IOSConfig();
-            iosConfig.initDriver(Config.device.capabilities);
-            appiumDriver = iosConfig.ios;
+            appiumDriver = ((IOS) device).ios;
         } else {
             Assertions.fail("unknown device platform");
         }

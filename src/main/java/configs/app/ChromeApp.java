@@ -6,7 +6,7 @@ public class ChromeApp extends App {
     public String webViewContext;
 
     public ChromeApp() {
-        this.name = "Chrome";
+        this.name = "chrome";
         this.appPackage = "com.android.chrome";
         this.appActivity = "com.google.android.apps.chrome.Main";
     }

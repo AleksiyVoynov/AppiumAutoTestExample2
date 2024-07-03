@@ -6,7 +6,7 @@ public class SafariApp extends App {
     public String webViewContext;
 
     public SafariApp() {
-        this.name = "Safari";
+        this.name = "safari";
         this.bundleId = "com.apple.mobilesafari";
     }
 
